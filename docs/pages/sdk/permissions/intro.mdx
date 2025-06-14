@@ -72,7 +72,7 @@ Actions are arbitrary functions that the smart account will `delegatecall` to.  
 
 Note that actions are NOT to be confused with the calls you actually want to execute.  For example, if you want to interact with Uniswap, that's just the call you want to execute.  "Action" here specifically refers to the execution function by which Uniswap is called.
 
-If that's confusing, just forget about actions.  Mostly commonly you will only be setting up signers and policies, and the `action` will default to Kernel's default `execute()` function, which is enough for most needs.
+If that's confusing, just forget about actions.  Most commonly you will only be setting up signers and policies, and the `action` will default to Kernel's default `execute()` function, which is enough for most needs.
 
 ## Next Steps
 

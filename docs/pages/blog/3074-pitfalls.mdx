@@ -13,7 +13,7 @@ layout: minimal
 
 [EIP-3074](https://eips.ethereum.org/EIPS/eip-3074) has been confirmed for the next Ethereum hardfork (”Pectra”), which is amazing news for the Ethereum community.  For the first time, EOA users will be able to enjoy the benefits of account abstraction (AA) — gas sponsorship, transaction batching, session keys, passkeys, etc.  At ZeroDev, we cannot be more excited to bring these smart account features to EOA users.
 
-At its core, 3074 is a very simple proposal.  Two new opcodes, `AUTH` and `AUTHCALL`, together enable a smart contract (known as an “invoker”) to take over the address of a EOA.  Most of the complexity in enabling the aforementioned AA features is left out of the protocol itself, and left to the application layer (specifically invokers and relayers) to handle.
+At its core, 3074 is a very simple proposal.  Two new opcodes, `AUTH` and `AUTHCALL`, together enable a smart contract (known as an “invoker”) to take over the address of an EOA.  Most of the complexity in enabling the aforementioned AA features is left out of the protocol itself, and left to the application layer (specifically invokers and relayers) to handle.
 
 By leaving complexity out of the spec, however, EIP-3074 opens up many possible paths to account abstraction.  **The danger is that some of these paths may lead to a future of AA that is more centralized and permissioned than any of us intended or desired.**  This blog post explains:
 
@@ -50,7 +50,7 @@ Smart account transactions are particularly challenging for DoS protection, beca
 - It takes more computational resources to validate a transaction, since validation is implemented with smart contracts and therefore can consume significant computational resources.
 - Since the validation contract can read chain state, valid transactions may become invalid as the chain state changes.
 
-As a result, a mempool of nodes that verify smart account transactions are particularly vulnerable to DoS attacks.  The second problem is especially tricky, because if a relayer thinks that a smart account transaction is valid, packages it into a EOA, and submits it on-chain, only to find out that it’s invalid after all, the relayer will have wasted not just computational resources but also gas, which makes the attack particularly economically disruptive.
+As a result, a mempool of nodes that verify smart account transactions are particularly vulnerable to DoS attacks.  The second problem is especially tricky, because if a relayer thinks that a smart account transaction is valid, packages it into an EOA, and submits it on-chain, only to find out that it’s invalid after all, the relayer will have wasted not just computational resources but also gas, which makes the attack particularly economically disruptive.
 
 Since EIP-3074 doesn’t address this problem, the problem must be solved by invokers and relayers.  If it’s not solved, **the default behavior would be for all 3074 relayers to only accept transactions from trusted senders, resulting in fragmented and permissioned mempools, and a low degree of censorship resistance.**
 
