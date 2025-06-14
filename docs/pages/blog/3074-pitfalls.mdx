@@ -13,7 +13,7 @@ layout: minimal
 
 [EIP-3074](https://eips.ethereum.org/EIPS/eip-3074) has been confirmed for the next Ethereum hardfork (”Pectra”), which is amazing news for the Ethereum community.  For the first time, EOA users will be able to enjoy the benefits of account abstraction (AA) — gas sponsorship, transaction batching, session keys, passkeys, etc.  At ZeroDev, we cannot be more excited to bring these smart account features to EOA users.
 
-At its core, 3074 is a very simple proposal.  Two new opcodes, `AUTH` and `AUTHCALL`, together enable a smart contract (known as an “invoker”) to take over the address of a EOA.  Most of the complexity in enabling the aforementioned AA features is left out of the protocol itself, and left to the application layer (specifically invokers and relayers) to handle.
+At its core, 3074 is a very simple proposal.  Two new opcodes, `AUTH` and `AUTHCALL`, together enable a smart contract (known as an “invoker”) to take over the address of an EOA.  Most of the complexity in enabling the aforementioned AA features is left out of the protocol itself, and left to the application layer (specifically invokers and relayers) to handle.
 
 By leaving complexity out of the spec, however, EIP-3074 opens up many possible paths to account abstraction.  **The danger is that some of these paths may lead to a future of AA that is more centralized and permissioned than any of us intended or desired.**  This blog post explains:
 
